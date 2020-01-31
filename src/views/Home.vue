@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     <h1>Adopt a new best friend!</h1>
+    {{ getAllCats.length }}
+    {{ animalsCount }}
     <button class="btn btn-primary" @click="toggleForm">Add New Pet</button>
     <b-form @submit.prevent="handleSubmit" v-if="showPetForm">
       <b-form-group id="input-group-2" label="Pet's Name:" label-for="input-2">
@@ -37,7 +39,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "home",
   data() {
@@ -49,6 +51,9 @@ export default {
         age: 0
       }
     };
+  },
+  computed: {
+    ...mapGetters(["animalsCount", "getAllCats"])
   },
   methods: {
     ...mapActions(["addPet"]),
