@@ -1,26 +1,17 @@
 <template>
   <div class="home-view-container">
     <h1>Adopt a new best friend!</h1>
-    {{ getAllCats.length }}
-    {{ animalsCount }}
+    <h3>Cats: {{ getAllCats.length }}</h3>
+    <h3>Dogs: {{ getAllDogs.length }}</h3>
+    <h3>Total: {{ animalsCount }}</h3>
     <button class="btn btn-primary" @click="toggleForm">Add New Pet</button>
     <b-form @submit.prevent="handleSubmit" v-if="showPetForm">
       <b-form-group id="input-group-2" label="Pet's Name:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          v-model="formData.name"
-          required
-          placeholder="Enter name"
-        ></b-form-input>
+        <b-form-input id="input-2" v-model="formData.name" required placeholder="Enter name"></b-form-input>
       </b-form-group>
 
       <b-form-group id="input-group-3" label="Species:" label-for="input-3">
-        <b-form-select
-          id="input-3"
-          v-model="formData.species"
-          :options="['cats', 'dogs']"
-          required
-        ></b-form-select>
+        <b-form-select id="input-3" v-model="formData.species" :options="['cats', 'dogs']" required></b-form-select>
       </b-form-group>
 
       <b-form-group id="input-group-2" label="Pet's Age:" label-for="input-2">
@@ -53,7 +44,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["animalsCount", "getAllCats"])
+    ...mapGetters(["animalsCount", "getAllCats", "getAllDogs"])
   },
   methods: {
     ...mapActions(["addPet"]),
