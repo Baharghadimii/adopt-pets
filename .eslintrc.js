@@ -8,6 +8,7 @@ module.exports = {
     '@vue/standard'
   ],
   rules: {
+    'quotes': 'off',
     'no-unused-expressions': 'off',
     'semi': 'off',
     'next-line': 'off',
